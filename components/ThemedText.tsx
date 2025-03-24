@@ -1,60 +1,68 @@
-import { Text, type TextProps, StyleSheet } from 'react-native';
-
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { StyleSheet, Text, type TextProps } from "react-native";
+import React from "react";
 
 export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  typo:
+    | "header1"
+    | "header2"
+    | "header3"
+    | "header4"
+    | "header5"
+    | "body"
+    | "body_bold"
+    | "button"
+    | "note";
 };
 
-export function ThemedText({
-  style,
-  lightColor,
-  darkColor,
-  type = 'default',
-  ...rest
-}: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-
-  return (
-    <Text
-      style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
-        style,
-      ]}
-      {...rest}
-    />
-  );
+export default function ThemedText({ typo, style, ...rest }: ThemedTextProps) {
+  return <Text style={[styles[typo], style]} {...rest} />;
 }
 
 const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
+  header1: {
+    fontSize: 40,
+    fontWeight: "bold",
+    color: "#1d1d1d",
   },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
+  header2: {
+    fontSize: 36,
+    fontWeight: "bold",
+    color: "#1d1d1d",
   },
-  title: {
+  header3: {
     fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
+    fontWeight: "bold",
+    color: "#1d1d1d",
   },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  header4: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#1d1d1d",
   },
-  link: {
-    lineHeight: 30,
+  header5: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#1d1d1d",
+  },
+  body: {
     fontSize: 16,
-    color: '#0a7ea4',
+    fontWeight: "normal",
+    color: "#1d1d1d",
+  },
+  body_bold: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#1d1d1d",
+  },
+  button: {
+    fontSize: 16,
+    fontWeight: "semibold",
+    color: "#1d1d1d",
+  },
+  note: {
+    fontSize: 12,
+    fontWeight: "normal",
+    fontStyle: "italic",
+    color: "#1d1d1d",
   },
 });
