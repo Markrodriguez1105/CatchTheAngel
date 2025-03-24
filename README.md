@@ -48,3 +48,10 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+#BATTLE FIELD: Here you can play and catch the android;
+               - The Reset Button is to restart the game
+![Screenshot_1742839472](https://github.com/user-attachments/assets/c9db8cce-d735-4e24-ac2c-68c2df4b92c3)
+
+#Congrats Notification: Alert the player that they catch the android
+![Screenshot_1742839635](https://github.com/user-attachments/assets/2a849f66-fc5d-4f53-ae0c-72c27749e515)
